@@ -39,6 +39,13 @@ colback=gray!5,
 coltext=black
 }%
 
+% \newtcbox{\verbbox}{on line,
+% arc=0pt,outer arc=0pt,colback=grey,colframe=black,
+% boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,
+% boxrule=0pt,bottomrule=1pt,toprule=1pt}
+\newtcbox{verbbox}{on line,
+arc=2.7pt,outer arc=3pt,colback=gray!5!white,colframe=gray!50!white,boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,boxrule=0.3pt,listing only}
+
 \title{使用\LaTeX{}撰写报告}
 \author{杨大伟}
 \company{陈少峰-李大军团队}
@@ -59,7 +66,9 @@ coltext=black
 
 为了平衡我们可怜的学习成本和所追求的高效率，在未来一段时间内，我会用以\LaTeX{}的形式撰写报告，同时让小鲍完善细节。各位研究生随后以我报告为示例，撰写自己的报告。在这段过渡时间内，大家可以同时使用\texttt{Word}模板和\LaTeX{}模板，视自己的工作效率而定。但在11月之后需全部转为\LaTeX{}的写作方式。
 
-本文帮助大家度过使用\LaTeX{}最初比较痛苦的阶段，可以使您熟悉最基本的\LaTeX{}命令和环境，使用这个模板做出高效和高质量的研究报告。当然，本文假定你已经看过某人在你面前显摆过\LaTeX{}的编译过程，教会了你如何安装\texttt{texlive}和如何使用某款撰写和编译\LaTeX{}的集成环境，如\texttt{TeXMaker}。
+本文帮助大家度过使用\LaTeX{}最初比较痛苦的阶段，可以使您熟悉最基本的
+\LaTeX{}命令和环境，使用这个模板做出高效和高质量的研究报告。当然，本文
+假定你已经看过某人在你面前演示过\LaTeX{}的编译过程，教会了你如何安装\texttt{texlive}和如何使用某款撰写和编译\LaTeX{}的集成环境，如\texttt{TeXMaker}。
 
 本文包括\LaTeX{}基本命令和环境、自定义命令和环境、自定义符号的方法。为了实现合作写作，我们还做了一些关于文件组织的约定。在模板的使用过程中，我们会发现一些实际需求，比如老师的批注、对其批注的引用等，对于需求我们将定义一些命令或环境，这样有助于我们提升交流的质量。在\LaTeX{}的介绍过程中，文中还提供了相关内容的来源。追溯这些来源，我们就可以慢慢详细了解\LaTeX{}知识。
 
@@ -80,6 +89,18 @@ coltext=black
 \begin{itemize}
 \item 维基教程：\url{https://en.wikibooks.org/wiki/LaTeX}
 \item TUG官网教程：\url{http://www.tug.org/twg/mactex/tutorials}
+\item \LaTeX{} for Complete Novices: 本地文档，执行命令打开该文档。 
+  \begin{cmd}
+texdoc dickimaw-novices
+  \end{cmd}
+ \item \LaTeXe{}: An unofficial reference manual
+  \begin{cmd}
+texdoc latex2e
+  \end{cmd}
+ \item The Not So Short Introduction to \LaTeXe{}
+   \begin{cmd}  
+texdoc lshort
+   \end{cmd}
 \item 刘海洋. \LaTeX{}入门，电子工业出版社，2013
 \end{itemize}
 
@@ -199,6 +220,56 @@ coltext=black
 
 其它还有一个属性“字族”，因很少涉及，这里暂略去。关于字体还有更丰富的命令，暂时也不详谈。
 
+改变字体一般有两种方式：一种是改变所选择的文字，称为“区域命令”；
+另一种是改变命令声明以后的字体，称为“声明命令”或“模式命令”。
+
+也许你会在有的地方看过命令，如\verb!\bf!，\verb!\md!，\verb!it!，
+\verb!\sl!，\verb!\sc!，\verb!\sf!，\verb!\tt!，或\verb!\rm!等。这些命
+令已经是陈旧命令，不提倡再使用。原因这些命令不允许复合作用，如：
+\begin{codeout}
+  \it{\bf{ it and bf format}}
+\end{codeout}
+显然，\verb!\it!命令已经被\verb!\bf!屏蔽了。1994年发布了\LaTeXe{}取代
+了老版本的\LaTeX{}的2.09版，使用了新的命令风格\verb!\textxx!，如：
+\begin{codeout}
+\textit{\textbf{Never mind the rain}}
+\end{codeout}
+
+改进后的字体命令就可以嵌套作用了。
+
+字体声明命令见表\ref{tbl:fontdeclaration}。字体声明命令还可以作为环境
+使用。表中命令嵌套使用对临时设置
+字体时很重要。
+
+\begin{table}[H]
+  \centering
+  \caption{字体改变声明}
+  \label{tbl:fontdeclaration}
+  \begin{tabular}{lll}
+   \toprule
+   \textbf{Declaration} & \textbf{Example Input} & \textbf{Corresponding output} \\
+   \midrule   
+   \verb+\rmfamily+ & \verb+\rmfamily roman text+ & {\rmfamily roman text }\\
+   \verb+\sffamily+ & \verb+\sffamily sans serif text+ & {\sffamily
+                                                         sans serif text }\\
+   \verb+\ttfamily+ & \verb+\ttfamily typewritter text+ & {\ttfamily
+                                                          typewritter text}\\
+   \verb+\mdseries+ & \verb+\mdseries medium text+ & {\mdseries
+                                                     medium text}\\
+   \verb+\upshape+ & \verb+\upshape upright text+ & {\upshape
+                                                     upright text}\\
+   \verb+\itshape+ & \verb+\itshape italic text+ & {\itshape
+                                                     italic text}\\
+   \verb+\slshape+ & \verb+\slshape slant text+ & {\slshape
+                                                     slant text}\\
+   \verb+\em+ & \verb+\em emphasized text+ & {\em emphasized text} \\
+   \verb+\normalfont+ & \verb+\normalfont default text+ & {\normalfont
+                                                     default font}\\
+   \bottomrule
+  \end{tabular}
+\end{table}
+
+
 \subsection{特殊字符}
 在文档写作中，经常涉及希腊字母或其它特殊字符的输入。\LaTeX{}已经状备好了这些字符，只需要通过命令实即可实现输入。
 
@@ -240,13 +311,16 @@ $\alpha$ $\beta$ $\xi$ $\sigma$ $\theta$
 \caption{tabular示例}
 \label{table:first}
 \begin{center}
-\begin{tabular}{lcr}
-\hline
+%\begin{tabular}{rcl}
+\begin{tabular}{>{\raggedleft}p{0.2\linewidth}
+                >{\centering}p{0.2\linewidth}
+                p{0.2\linewidth}}
+\toprule
  左对齐列 & 中间对齐列 & 右对齐列 \\
  \hline
  abcde  & o & edcba \\
  123   & 0 & 321 \\
- \hline
+\bottomrule
 \end{tabular}
 \end{center}
 \end{table}
@@ -263,7 +337,7 @@ $\alpha$ $\beta$ $\xi$ $\sigma$ $\theta$
 \begin{table}[H]
 \caption{tabularx示例}
 \begin{center}
-\begin{tabularx}{0.8\linewidth}{Xcc}
+\begin{tabularx}{0.7\linewidth}{rp{0.2\linewidth}p{0.2\linewidth}}
  \toprule
  左对齐列 & 中间对齐列 & 右对齐列 \\
  \midrule
