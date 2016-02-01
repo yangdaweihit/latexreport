@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage[linkcolor=gray!40!black]{hyperref}
 \usepackage{tcolorbox}
+\usepackage{xcolor}
 \tcbuselibrary{breakable,listings}
 \graphicspath{{figure/}}
 
@@ -45,7 +46,7 @@ coltext=black
 % boxrule=0pt,bottomrule=1pt,toprule=1pt}
 \newtcbox{verbbox}{on line,
 arc=2.7pt,outer arc=3pt,colback=gray!5!white,colframe=gray!50!white,boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,boxrule=0.3pt,listing only}
-
+\input{symbols.tex}
 \title{使用\LaTeX{}撰写报告}
 \author{杨大伟}
 \company{陈少峰-李大军团队}
@@ -96,7 +97,7 @@ texdoc dickimaw-novices
  \item \LaTeXe{}: An unofficial reference manual
   \begin{cmd}
 texdoc latex2e
-  \end{cmd}
+ \end{cmd}
  \item The Not So Short Introduction to \LaTeXe{}
    \begin{cmd}  
 texdoc lshort
@@ -269,7 +270,16 @@ texdoc lshort
   \end{tabular}
 \end{table}
 
+\subsection{颜色}
+\url{https://www.sharelatex.com/learn/Using_colours_in_LaTeX}
 
+\begin{codeout}
+{\color{red} 红色}\par
+\noindent
+{\color{blue} \rule{\linewidth}{0.5mm}}
+
+\colorbox{BurntOrange}{颜色}
+\end{codeout}
 \subsection{特殊字符}
 在文档写作中，经常涉及希腊字母或其它特殊字符的输入。\LaTeX{}已经状备好了这些字符，只需要通过命令实即可实现输入。
 
@@ -295,9 +305,13 @@ $\alpha$ $\beta$ $\xi$ $\sigma$ $\theta$
 \begin{codeout}
 %\usepackage{amsmath}
 一行文字之间的公式叫行内公式，比如：$x^2=1$。行间公式用公式环境，比如：
-\begin{equation}
-\int_{0}^{1} x^2 \mathrm{d}x = \dfrac{1}{3}
-\end{equation}
+\begin{eqnarray}
+\int_{0}^{1} x^2 \mathrm{d}x & = & \dfrac{1}{3}  \\
+\int_{0}^{1} x^2 \mathrm{d}x & = & \sqrt{ \dfrac{1}{3}} \\
+\integralx{0}{1}{x}  & = & 23 \\
+\mafan{a}{\zeta}{\zeta} &  & \\
+\mafan{\gamma}{\delta}{\xi} & = & \\
+\end{eqnarray}
 式中：注意$\mathrm{d}$是正体，表示微分符号。
 \end{codeout}
 

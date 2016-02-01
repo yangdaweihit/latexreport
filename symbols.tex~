@@ -1,0 +1,6 @@
+\newcommand{\integralx}[3]{\int_{#1}^{#2} #3 \mathrm{d}x }
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:
