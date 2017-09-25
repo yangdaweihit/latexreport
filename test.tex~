@@ -1,0 +1,8 @@
+\documentclass{article}
+\begin{document}
+hello, \LaTeX{}!
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
