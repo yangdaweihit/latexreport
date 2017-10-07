@@ -1,0 +1,48 @@
+% 指明编写文档时使用的编码格式：GBK或UTF8。推荐UTF8。
+\documentclass[UTF8]{article} 
+\usepackage{indentfirst}
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong} %中文有衬线字体
+\setCJKsansfont{FandolHei}  %中文无衬线字体
+\setmainfont{Times New Roman}  %英文有衬线字体
+\setsansfont{Fira Sans}  %英文无衬线字体
+
+\title{xeCJK}
+\date{}
+\begin{document}
+\maketitle
+
+\texttt{xeCJK}是用于中文和英文字体单独设置的宏包。
+
+\section{字体示例}
+
+\textrm{有衬线字体}
+
+\textrm{abcdefg}
+
+\textsf{无衬线字体}
+
+\textsf{abcdefg}
+
+\section{用法}
+\begin{verbatim}    
+\setCJKmainfont{FandolSong} %中文有衬线字体
+\setCJKsansfont{FandolHei}  %中文无衬线字体
+\setmainfont{Times New Roman}  %英文有衬线字体
+\setsansfont{Fira Sans}  %英文无衬线字体
+\end{verbatim}    
+
+\section{字体名}
+系统内具体有哪些字体需要事先查明，在\texttt{Linux}中终端查找字体名命令如
+下：
+
+\begin{verbatim}
+fc-list > fontlist.txt #列表冒号前的为字体族名
+fc-list -f "%{family}\n" :lang=zh > zhfont.txt #中文字体族名
+\end{verbatim}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex 
+%%% TeX-master: t
+%%% End:
