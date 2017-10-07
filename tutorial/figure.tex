@@ -1,0 +1,22 @@
+\section{插图}
+
+参考阅读：\url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}
+
+如前所述，插图是另一类浮动体环境——\texttt{figure}。如:
+\begin{codeout}
+\begin{figure}[H]
+  \begin{center} \includegraphics[width=.3\linewidth]{ctanlion}
+  \caption{\LaTeX{}的吉祥物}
+  \label{fig:lion}
+  \end{center}
+\end{figure}
+\end{codeout}
+
+\LaTeX{}的吉祥物是一只可爱的狮子，如图\ref{fig:lion}所示，由Duane Bibby
+创作。插图默认的文件为\texttt{.eps}格式，也可以是\texttt{.jpg}或
+\texttt{.pdf}等。关于插图的更多内容参见网络链接。
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

@@ -1,0 +1,142 @@
+\section{基本命令和环境}
+
+\emph{命令}和\emph{环境}是构成文档的基本单元。
+
+命令的基本基本结构是：
+
+\begin{code}
+  <命令名>[选项]{参数}
+\end{code}
+
+环境是由一对命令构成的：
+\begin{code}
+ \begin{环境名}[选项] 
+   % 环境体
+ \end{环境名}
+\end{code}
+
+下面我们将分别介绍一些基本的命令和环境。
+
+\subsection{题目、作者和日期}
+
+文章的开头首先是题目和作者、日期。这三个信息都以命令形式定义的。它们都需
+要在导言区定义，然后在正文中用一条命令\verb!\maketitle!将它们显示出来。
+
+\begin{code}
+  ...
+  \title{都闪开，我要用\LaTeX{}写作了}
+  \author{西门吹牛}
+  \date{2015年某月某日}
+  ...
+  \begin{document}
+    \maketitle % 没有这条命令，前面的定义都烟消云散。...
+  \end{document}
+\end{code}
+
+\subsection{中文输入}
+
+在导言区只要引用了宏包\verb!ctex!，即可用命令\verb!xelatex!编译中文了。注
+意，一般要在选项中说明字体编码为\verb!UTF8!。
+
+\begin{code}
+  \usepackage[UTF8]{ctex}
+\end{code}
+
+\subsection{段落}
+
+分段有两种方式：
+\begin{itemize}
+\item 在段落后填加\verb!\\!
+\item 在段落后填加一个空行。
+\end{itemize}
+
+\subsection{章节}
+
+章节命令能用到的就三个：
+\begin{itemize}
+\item 章：\verb!\chapter{绪论}!，在我们这个模板中这一级题目是无效的。
+\item 节：\verb!\section{前言}!
+\item 次节：\verb!\subsection{背景}!
+\end{itemize}
+
+\subsection{枚举}
+
+\begin{codeout}
+  \begin{itemize}
+  \item 首先，我要强调。
+  \item 其次，我还要说明。
+  \end{itemize}
+\end{codeout}
+
+\subsection{数学公式}
+
+参考阅读：\url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}
+
+\begin{codeout}
+  % \usepackage{amsmath}一行文字之间的公式叫行内公式，比如：
+  $x^2=1$。行间公式用公式环境，比如：
+  \begin{eqnarray}
+    \int_{0}^{1} x^2 \mathrm{d}x & = & \dfrac{1}{3} \\
+    \int_{0}^{1} x^2 \mathrm{d}x & = & \sqrt{ \dfrac{1}{3}} 
+  \end{eqnarray}
+  式中：注意$\mathrm{d}$是正体，表示微分符号。
+\end{codeout}
+
+\subsection{特殊字符}
+
+在文档写作中，经常涉及希腊字母或其它特殊字符的输入。\LaTeX{}已经状备好了
+这些字符，只需要通过命令实即可实现输入。
+
+\begin{codeout}
+  %\usepackage{amsmath}
+  $\alpha$ $\beta$ $\xi$ $\sigma$ $\theta$
+\end{codeout}
+
+这些字符已经汇总到了一个文档中供查询—\texttt{symbols-a4.pdf}。在字符界面
+中，输入如下命令即可自动找到该文档并用系统默认的pdf浏览器打开：
+
+\begin{cmd}
+  > texdoc symbols-a4
+\end{cmd}
+
+还有一些网站专门提供了手写识别\LaTeX{}符号的功能，只需要用鼠标画出查询的
+符号，网站就会推荐出可能的符号命令。这里推荐一个：
+
+\subsection{颜色}
+\url{https://www.sharelatex.com/learn/Using_colours_in_LaTeX}
+
+\begin{codeout}
+  \textcolor{red}{红色}
+
+  {\color{blue} \rule{\linewidth}{0.5mm}}
+
+  \colorbox{BurntOrange}{颜色}
+\end{codeout}
+
+\subsection{参考文献}
+
+命令\verb!\bibliography!用来引用某个\texttt{bib}文件，如：
+\begin{code}
+  \bibliography{./Reference/Reference.bib}
+\end{code}
+
+在\texttt{bib}文件中的所有文献都有一个\texttt{Bibtexkey}项代表该文献，在
+\texttt{tex}文件中用\verb!\cite!命令即可通过该项值引用文献，如：
+
+\begin{code}
+  文献\cite{Wu2010}指出了如下观点：
+\end{code}
+
+\subsection{目录}
+
+插入目录只需一条命令，位于\verb!\maketitle!之后：
+
+\begin{code}
+  \tableofcontents
+\end{code}
+
+\url{http://detexify.kirelabs.org/classify.html}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

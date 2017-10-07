@@ -1,0 +1,68 @@
+\section{字体}
+
+我们在写作时为了强调某些内容，或纯粹为了避免单调，会适度地转变字体。在排
+版中，字体其实是一个含义丰富的术语。当我们在说一种字体时，实际上是一个属
+性集合，它包括：
+
+\begin{codeout}
+  \begin{description}
+  \item[大小] 比如：{\zihao{3}字号三}、{\zihao{5}字号五}、{\zihao{7}字号
+      七}。
+  \item[字形] 比如：粗体{\textbf{bfseries}}、斜体{\textsl{slant}}、打印
+    体{\texttt{italic}}。
+  \item[字族] 比如：\songti{宋体}、\heiti{黑体}、\fangsong{仿宋}。
+  \end{description}
+\end{codeout}
+
+其它还有一个属性“字族”，因很少涉及，这里暂略去。关于字体还有更丰富的命
+令，暂时也不详谈。
+
+改变字体一般有两种方式：一种是改变所选择的文字，称为“区域命令”；另一种
+是改变命令声明以后的字体，称为“声明命令”或“模式命令”。
+
+也许你会在有的地方看过命令，如\verb!\bf!，\verb!\md!，\verb!it!，
+\verb!\sl!，\verb!\sc!，\verb!\sf!，\verb!\tt!，或\verb!\rm!等。这些命令
+已经是陈旧命令，不提倡再使用。原因这些命令不允许复合作用，如：
+
+\begin{codeout}
+  \it{\bf{ it and bf format}}
+\end{codeout}
+
+显然，\verb!\it!命令已经被\verb!\bf!屏蔽了。1994年发布了\LaTeXe{}取代了老
+版本的\LaTeX{}的2.09版，使用了新的命令风格\verb!\textxx!，如：
+
+\begin{codeout}
+  \textit{\textbf{Never mind the rain}}
+\end{codeout}
+
+改进后的字体命令就可以嵌套作用了。
+
+字体声明命令见表\ref{tbl:fontdeclaration}。字体声明命令还可以作为环境使
+用。表中命令嵌套使用对临时设置字体时很重要。
+
+\begin{table}[H]
+  \centering
+  \caption{字体改变声明}
+  \label{tbl:fontdeclaration}
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Declaration} & \textbf{Example Input} & \textbf{Corresponding output} \\ 
+    \midrule
+    \verb+\rmfamily+ & \verb+\rmfamily roman text+ & {\rmfamily roman text }\\
+    \verb+\sffamily+ & \verb+\sffamily sans serif text+ & {\sffamily sans serif text }\\ 
+    \verb+\ttfamily+ & \verb+\ttfamily typewritter text+ & {\ttfamily typewritter text}\\
+    \verb+\mdseries+ & \verb+\mdseries medium text+ & {\mdseries medium text}\\ 
+    \verb+\upshape+  & \verb+\upshape upright text+ & {\upshape upright text}\\ 
+    \verb+\itshape+ & \verb+\itshape italic text+ & {\itshape italic text}\\ 
+    \verb+\slshape+ & \verb+\slshape slant+ & {\em emphasized text} \\
+    \verb+\normalfont+ & \verb+\normalfont default text+ & {\normalfont
+                                                           default font}\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

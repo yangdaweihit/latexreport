@@ -1,0 +1,64 @@
+\section{文档结构}
+
+用\LaTeX{}写作统共分两步：
+\begin{enumerate}
+\item 撰写\texttt{tex}文档；
+\item 编译文档并转为特定的阅读格式，一般是\texttt{pdf}文档。
+\end{enumerate}
+
+有人会问：这不和编程一样吗？是的，用\LaTeX{}撰写文档基本上就是一个“用文字
+编程”的过程。
+
+我们要做的其实只是撰写文档，其余部分都会通过简单的命令由程序完成。首先介
+绍\texttt{tex}文档的基本结构。\LaTeX{}文档包括\emph{导言}和\emph{主体}两
+部分。
+
+导言部分用于声明文档的类型和引用的宏包。文档类型决定了文档编译后所套用的
+模板、为文档撰写准备的一些变量设置，本文所套用的模板就是\texttt{hitec}，
+作者说要做一个简单的用于\emph{高科技}写作的模板。
+
+主体结构由一个环境构成\verb!\begin{document} ... \end{document}!。在这两
+个命令中间便是你撰写文档内容的地方。文档中\verb!%!之后本行内容不被编译，
+换言之，\verb!%!是\emph{注释符}。所有\LaTeX{}命令都是用\verb!\!开头的，
+它的中文名字叫\emph{反斜杠}。
+
+  
+\begin{code}
+  % -----------------导言区
+  \documentclass{hitec}   %指定文档所套用的模板
+  \usepackage[UTF8]{ctex} %引用宏包并加注选项
+  \usepackage{amsmath}    %引用宏包
+  \usepackage{tcolorbox}
+  \tcbuselibrary{listings}
+  % -----------------主体
+  \begin{document}
+  % 您的大作
+  \end{document}
+\end{code}
+
+当你写完了文档，就可以编译文档了，比如文档名为\texttt{main.tex}。如果在命
+令行中操作，是这样的：
+
+\begin{cmd}
+  > latex main.tex
+\end{cmd}
+
+但我们多数文档会含有中文，此时应使用\texttt{xelatex}编译：
+
+\begin{cmd}
+  > xelatex main.tex
+\end{cmd}
+
+\texttt{xelatex}，以及\texttt{pdflatex}一般称为\emph{编译引擎}，其实就是
+个可执行程序。
+
+然而实际上我们很少在命令行中输入命令编译，多数是在一个集成环境中用快捷完
+成编译。比如在\texttt{TeXMaker}中的\texttt{F1}键，在\texttt{Emacs
+AUCTex}中的\texttt{C-c C-c}。总之，在撰写\LaTeX{}文档时，有一款高效的软
+件是非常必要的。
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

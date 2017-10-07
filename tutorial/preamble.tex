@@ -1,0 +1,60 @@
+\usepackage[UTF8]{ctex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[linkcolor=gray!40!black]{hyperref}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}  %用于美观表格线宽
+\usepackage{multirow}  %用于跨行表
+\usepackage{tabularx}  %定义表格宽度
+\usepackage{float}
+\usepackage[right]{lineno}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,listings}
+\graphicspath{{figure/}}
+
+\linespread{1.4}
+
+\setCJKmainfont{FandolSong}
+\setCJKsansfont{FandolFang}
+\setmainfont{Times New Roman}
+\setsansfont{Fira Sans}
+\renewcommand\emph[1]{{\kaishu \textcolor{BrickRed}{#1}}}
+\newtcblisting{code}{%
+breakable,
+left=3mm,
+listing only,
+boxrule=0.2mm,
+colback=gray!5,
+coltext=black
+}%
+
+\newtcblisting{cmd}{%
+breakable,
+left=3mm,
+listing only,
+boxrule=0.2mm,
+colback=black,
+coltext=green
+}%
+
+\newtcblisting{codeout}{%
+breakable,
+left=3mm,
+boxrule=0.2mm,
+colback=gray!5,
+coltext=black
+}%
+
+% \newtcbox{\verbbox}{on line,
+% arc=0pt,outer arc=0pt,colback=grey,colframe=black,
+% boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,
+% boxrule=0pt,bottomrule=1pt,toprule=1pt}
+\newtcbox{verbbox}{on line, arc=2.7pt,outer
+arc=3pt,colback=gray!5!white,colframe=gray!50!white,boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,boxrule=0.3pt,listing
+only}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

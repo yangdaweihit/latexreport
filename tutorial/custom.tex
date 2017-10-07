@@ -1,0 +1,120 @@
+\section{自定义}
+
+\subsection{模板}
+
+\LaTeX{}最吸人的地方就在于我们可以凭借定义好的模板，将全部精力放在写作中，
+而完全不必担心会出现格式错误。使用模板的方式很简单，即在文档类型中使用模
+板名即可，如：
+
+\begin{code}
+  \documentclass{hitec}
+\end{code}
+
+模板文件的扩展名为\texttt{.cls}，要使用\texttt{TeXLive}套件之外的模板，需
+要将该文件置于\TeX{}系统可搜索的目录中，然后刷新\TeX{}数据库，详
+见\ref{subsec:installtemplate}节。
+
+\subsection{命令}
+
+为了简化某些固定的输入内容，可以使用\verb!\newcommand! 自定义命令。比如，
+我们希望在公式中固定单位\verb! MPa!。注意，我们要求单位之前留有半个空格，
+以和数字区分开。但如果我们总是手写输入，难免会在格式上出错。现在自定义一
+个命令\verb!\MPa!就可以避免这个麻烦。
+
+\begin{codeout}
+  \newcommand{\MPa}{\ \mathrm{MPa}}
+  $5\MPa$
+\end{codeout}
+
+自定义命令还可以带参数，如：
+
+\begin{codeout}
+  \newcommand{\emphtext}[1]{\textcolor{red}{\texttt{#1}}}
+  \emphtext{这是一句重要的废话。}
+\end{codeout}
+
+\subsection{环境}
+
+当我们要将特别定制的样式应用于较多的内容时，将它们作为命令参数被作用就显
+得不够方便。此时，我们可以自定义环境。自定义环境格式为：
+
+\begin{code}
+  \newenvironment{环境名}{环境起始定义}{环境终止定义}
+\end{code}
+
+一般自定义环境是已有环境的扩展，比如：
+
+\begin{codeout}
+  \newenvironment{centertt}{%
+      \begin{center} \fangsong \color{blue}
+    }%
+    {%
+      \end{center}
+    }%
+
+    \begin{centertt}
+      居中的蓝色仿宋体环境
+    \end{centertt}
+
+\end{codeout}
+  
+\subsection{自定义文件}
+
+当我们自定义的命令或环境越来越多，放在正文中会影响正文的阅读。这时要么将
+这些定义放在模板中，要么单独放在一个\verb!tex!文件中，比
+如\verb!symbols.tex!，然后用一条命令就纳入到文档中了：
+
+\begin{code}
+  \input{symbols.tex}
+\end{code}
+
+通常我们只会专注于某一领域的写作，所以随着这个文件的内容越来越多，我们将
+它放在其它文档中重复使用，以提高我们的写作效率。
+
+
+\section{文档组织}
+
+\subsection{安装模板}
+\label{subsec:installtemplate}
+
+在使用某个模板前，需要将模板加入到\texttt{texlive}系统中。这样编译文档时
+才能找得到这个模板。把模板装到\texttt{texlive}中统共分两步：
+
+\begin{itemize}
+\item 将模板文件\texttt{.cls}或\texttt{.sty}拷贝到模板目录。模板目录
+  在\texttt{texlive}安装目录中的子文件夹\texttt{/texmf-local}。模板拷贝到
+  这个文件夹中的任何子目录即可，但为了便于管理，还是再细致查找到合适的子
+  目录再拷贝为好，比如：
+
+  \texttt{/texmf-local/tex/latext/local}。
+\item 在字符界面（或称命令行）中\texttt{texhash}刷新\texttt{texlive}数据
+  库。
+\end{itemize}
+
+注意，若在\texttt{LINUX}系统中需要获得管理员权限后运行刷新命令，我们可以
+看到刷新数据库的路径显示出来：
+
+\begin{cmd}
+  > sudo texhash
+  texhash: Updating /usr/local/texlive/2015/texmf-config/ls-R...
+  texhash: Updating /usr/local/texlive/2015/texmf-dist/ls-R...
+  texhash: Updating /usr/local/texlive/2015/texmf-var/ls-R...
+  texhash: Updating /usr/local/texlive/texmf-local/ls-R...
+  texhash: Done.
+\end{cmd}
+
+
+\subsection{文件分类存放}
+
+通常我们的文档会越写越大，插图、子文档越来越多。为了便于我们的文档管理，
+需要分类存放文件。如插图放在子文件夹\texttt{figure}，子文档放在子文件
+夹\texttt{body}中，而仅令将主文档（一般命名为\texttt{main.tex}）放在一级
+目录中。在我们技术报告中，经常会反复使用一些数学符号，这时最好的处理方式
+就是将它们定义为命令，而这些命令定义最好放在一个专门的文件中，我们约定这
+个文件为\texttt{symbols.tex}，也放在文件夹\texttt{body}中。
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:

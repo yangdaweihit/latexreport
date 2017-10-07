@@ -1,0 +1,78 @@
+\section{表格}
+参考阅读：\url{https://en.wikibooks.org/wiki/LaTeX/Tables}
+
+表格和后面要讲的插图，在\LaTeX{}中称为\texttt{浮动体}。各类表格环境声明
+于浮动体\texttt{table}之中。浮动体的位置通过选项为控制，一般我们为了使表
+格处于期望的当前位置，需要引用一个宏包\texttt{float}，然后使用选项
+\texttt{[H]}。要引用表格，需要在浮动体中用命令\verb!\label!声明该浮动体
+的名字，再用\verb!\ref!引用即可。
+
+\begin{codeout}
+\begin{table}[H]
+\caption{tabular示例}
+\label{table:first}
+\begin{center}
+%\begin{tabular}{rcl}
+\begin{tabular}{>{\raggedleft}p{0.2\linewidth}
+  >{\centering}p{0.2\linewidth} p{0.2\linewidth}}
+  \toprule
+  左对齐列 & 中间对齐列 & 右对齐列 \\
+  \hline
+  abcde    & o          & edcba    \\
+  123      & 0          & 321      \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+计算结果见表\ref{table:first}。
+
+\end{codeout}
+
+\LaTeX{}中的表格仅有\texttt{tabbing}和\texttt{tabluar}两种环境，为了丰富
+和提升表格的功能，大量表格类宏包被开发出来，如可定制宽度的
+\texttt{tabularx}、可跨页的\texttt{longtable}、具有更多丰富功能的
+\texttt{tabu}、以及彩色盒子\texttt{tcolorbox}等。本文中的所有代码实际上
+就是被置于\texttt{tcolorbox}环境之中。
+
+下面我们仅就最常用的\texttt{tabularx}给出示例，其余内容见给出的网络链接。
+
+\begin{codeout}
+\begin{table}[H]
+\caption{tabularx示例}
+\begin{center}
+\begin{tabularx}{0.7\linewidth}{rp{0.2\linewidth}p{0.2\linewidth}}
+  \toprule
+  左对齐列 & 中间对齐列 & 右对齐列 \\
+  \midrule
+  abcde & o & edcba \\
+  123 & 0 & 321 \\
+  \bottomrule
+\end{tabularx}
+\end{center}
+\end{table}
+\end{codeout}
+
+\texttt{tabular}和\texttt{tabularx}是可以嵌套使用的。
+
+\begin{codeout}
+\begin{table}[H] \centering
+ \caption{嵌套tabular}
+ \begin{tabularx}{0.8\linewidth}{p{0.3\linewidth}X}
+   \toprule
+   分类 & 描述 \\
+   \midrule
+   类型一 & \begin{tabular}[t]{ll}子类A & ab \\子类B & sadf \\
+子类C & adf \\
+            \end{tabular} \\
+   类型二 & 较为简单的情况 \\
+   \bottomrule
+ \end{tabularx}
+ \label{tab:loopbaublar}
+\end{table}
+% \end{codeout}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "latexwritting"
+%%% End:
