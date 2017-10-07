@@ -1,4 +1,3 @@
 # latexreport
-- `tutorial` 教程
-- `template` 模板
-- `example` 示例
+
+更多示例见<https://github.com/MartinThoma/LaTeX-examples>
