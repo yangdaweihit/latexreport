@@ -1,0 +1,24 @@
+\documentclass[a4paper]{article} 
+\usepackage[UTF8]{ctex}
+\usepackage[os=win]{menukeys} 
+\renewmenumacro{\directory}[/]{hyphenatepathswithfolder}
+\renewmenumacro{\menu}[/]{angularmenus}
+\renewmenumacro{\keys}[+]{shadowedroundedkeys}
+
+\begin{document}
+ 目录：\directory{/home/user/Desktop/}
+
+ 菜单：\menu{View/Highlight Mode/Markup/LaTeX}
+
+ 组合：\keys{\ctrl+\shift+f}
+
+ 空格：\keys{\Space}
+
+ 方向：\keys{\arrowkeyright}
+
+ 按键：\keys{f+f+\enter} = \keys{ff + \return} = \keys{ff}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
