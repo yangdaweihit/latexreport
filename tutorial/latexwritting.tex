@@ -2,6 +2,7 @@
 \usepackage[UTF8]{ctex}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath}
+\usepackage{indentfirst}
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{booktabs}  %用于美观表格线宽
@@ -47,8 +48,8 @@ coltext=black
 arc=2.7pt,outer arc=3pt,colback=gray!5!white,colframe=gray!50!white,boxsep=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt,boxrule=0.3pt,listing only}
 \input{symbols.tex}
 \title{使用\LaTeX{}撰写报告}
-\author{杨大伟}
-\company{陈少峰-李大军团队}
+\author{鸟语花香}
+\company{哈尔滨工业大学}
 \confidential{\textbf{-- 非限制发布 --}}
 \usepackage{hyperref} % This line is readily ommited of it makes trouble
 \begin{document}
@@ -62,9 +63,7 @@ arc=2.7pt,outer arc=3pt,colback=gray!5!white,colframe=gray!50!white,boxsep=0pt,l
 
 \tableofcontents
 \section{前言}
-随着我们的讨论日渐深入，论述角度和结论也变得多样和细致。如果我们现在回想一下所经历的论证过程，可能已经难以列举出所有细节。我们的研究是猜想后求证，一旦在某个细节上存在偏差，那么就要回到前一个已验证节点处重新做出判断，再继续做验证。为了能够清晰记录我们所经历的研究历程，需要做出及时和准确的报告，这样才能保证我们的研究方式不会随着研究历程的变长而变得低效。现在我恢复了曾经使用过的\LaTeX{}模板\texttt{hitec.cls}用于我们日常的报告。该模板来自于\texttt{Eli Billauer(2001)}(\url{eli_billauer@yahoo.com})。
-
-为了平衡我们可怜的学习成本和所追求的高效率，在未来一段时间内，我会用以\LaTeX{}的形式撰写报告，同时让小鲍完善细节。各位研究生随后以我报告为示例，撰写自己的报告。在这段过渡时间内，大家可以同时使用\texttt{Word}模板和\LaTeX{}模板，视自己的工作效率而定。但在11月之后需全部转为\LaTeX{}的写作方式。
+对于本文的读者，我们做了一个重要的假设：\emph{您刚刚听说\LaTeX{}，虽然所知不多，但已决意学习。}之所以如此，纯粹是因为我们想避开一个非常难以回答的问题：为什么要学习\LaTeX{}。
 
 本文帮助大家度过使用\LaTeX{}最初比较痛苦的阶段，可以使您熟悉最基本的
 \LaTeX{}命令和环境，使用这个模板做出高效和高质量的研究报告。当然，本文
