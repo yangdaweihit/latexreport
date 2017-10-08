@@ -9,18 +9,18 @@
 有人会问：这不和编程一样吗？是的，用\LaTeX{}撰写文档基本上就是一个“用文字
 编程”的过程。
 
-我们要做的其实只是撰写文档，其余部分都会通过简单的命令由程序完成。首先介
-绍\texttt{tex}文档的基本结构。\LaTeX{}文档包括\emph{导言}和\emph{主体}两
-部分。
+我们要做的其实只是撰写一些后缀为\textit{tex}的文本文档，其余的事都交给程
+序去做。首先介绍\textit{tex}文档的基本结构。\LaTeX{}文档包
+括\uline{导言}和\uline{主体}两部分。
 
-导言部分用于声明文档的类型和引用的宏包。文档类型决定了文档编译后所套用的
-模板、为文档撰写准备的一些变量设置，本文所套用的模板就是\texttt{hitec}，
-作者说要做一个简单的用于\emph{高科技}写作的模板。
+导言部分用于声明文档的\uline{类型(class)}和引用
+的\uline{宏包(package)}。\uline{类型}决定了文档编译后所套用的模板、为文档
+撰写准备的一些变量设置。\uline{宏包}提供了很多命令和环境供我们使用。
 
 主体结构由一个环境构成\verb!\begin{document} ... \end{document}!。在这两
 个命令中间便是你撰写文档内容的地方。文档中\verb!%!之后本行内容不被编译，
-换言之，\verb!%!是\emph{注释符}。所有\LaTeX{}命令都是用\verb!\!开头的，
-它的中文名字叫\emph{反斜杠}。
+换言之，\verb!%!是\uline{注释符}。所有\LaTeX{}命令都是用\verb!\!开头的，
+它的中文名字叫\uline{反斜杠}。
 
   
 \begin{code}
@@ -49,14 +49,14 @@
   > xelatex main.tex
 \end{cmd}
 
-\texttt{xelatex}，以及\texttt{pdflatex}一般称为\emph{编译引擎}，其实就是
-个可执行程序。
+前面说了，\texttt{xelatex}，或者\texttt{pdflatex}就是\emph{编译引擎}，其实就是
+个可执行程序。如果程序在编译中发现文档中有语法错误，就会报错。错误信息显
+示在屏幕上，也会写在后缀为\textit{log}的文件中。
 
 然而实际上我们很少在命令行中输入命令编译，多数是在一个集成环境中用快捷完
 成编译。比如在\texttt{TeXMaker}中的\texttt{F1}键，在\texttt{Emacs
-AUCTex}中的\texttt{C-c C-c}。总之，在撰写\LaTeX{}文档时，有一款高效的软
-件是非常必要的。
-
+AUCTex}中的\texttt{C-c C-c}。总之，在撰写\LaTeX{}文档时，有一款高效的集
+成环境是非常必要的。
 
 %%% Local Variables:
 %%% mode: latex

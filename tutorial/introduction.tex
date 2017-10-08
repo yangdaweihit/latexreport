@@ -1,21 +1,10 @@
 \section{前言}
 
-在动笔之前，我们冒昧地对读者做了一个大胆的假设：\emph{您刚刚听说\LaTeX{}，
-  虽然所知不多，但已决意学习。}之所以需要这样的假设，纯粹是因为我们想暂时
-避开一个非常棘手的问题：\emph{为什么要学习\LaTeX{}}。本文意在简介，只是扮
-演一个门童的角色，为您说明进入\LaTeX{}殿堂的门径，无意以偏盖全。倘若被某
+在动笔之前，我们冒昧地对读者做出了一个大胆的假设：\emph{您刚刚听
+  说\LaTeX{}，虽然所知不多，但已决意学习。}之所以需要做出这样的假设，纯粹
+是因为我们想回避一个力所不及的问题：\emph{为什么要学习\LaTeX{}}。本文意在
+简介，只是扮演一个门童的角色，为您登堂入室带个路，无意以偏盖全。倘若被某
 位行家看到错误之处，还望指正。
-
-% 本文假定你已经看过某人在你面前演示过\LaTeX{}的编译过程，教会了你如何安
-% 装\texttt{texlive}和如何使用某款撰写和编译\LaTeX{}的集成环境，
-% 如\texttt{TeXMaker}。
-
-% 本文包括\LaTeX{}基本命令和环境、自定义命令和环境、自定义符号的方法。为了
-% 实现合作写作，我们还做了一些关于文件组织的约定。在模板的使用过程中，我们
-% 会发现一些实际需求，比如老师的批注、对其批注的引用等，对于需求我们将定义
-% 一些命令或环境，这样有助于我们提升交流的质量。在\LaTeX{}的介绍过程中，文
-% 中还提供了相关内容的来源。追溯这些来源，我们就可以慢慢详细了解\LaTeX{}知
-% 识。
 
 \subsection{\LaTeX{}的历史}
 
@@ -28,7 +17,28 @@
 \item 英文：\url{https://en.wikipedia.org/wiki/LaTeX}
 \end{itemize}
 
-第一次就能读准它很重要：\LaTeX{}——“雷泰赫”。
+如果对这两个链接你没兴趣，这里有个较为简捷的历史回顾：
+
+\emph{
+  \TeX{}是1978年被
+  \href{https://en.wikipedia.org/wiki/Donald_Knuth}{Donald Knuth}搞出来的
+  排版系统。这套玩意好是好，但搞起来比较麻烦，所以后来
+  被\href{https://en.wikipedia.org/wiki/Leslie_Lamport}{Leslie
+    Lamport}(1994)改进了一下形成了\LaTeX{}。}
+
+第一次就能读准它们很重要：\TeX{}——“泰赫”；\LaTeX{}——“雷泰赫”。之所以
+称它们为系统，是因为它们在核心程序之外，还要辅之以字体生成程序、字体、模
+板(\textit{.cls}文件)、宏包(\textit{.sty}文件)等。由于\LaTeX{}提供的语法
+支撑了我们今天的绝大部分\textit{tex}文档，所以我们很少提及\TeX{}了(一般
+称用原始\TeX{}命令写的文档为\texttt{plain tex})。
+
+此后为了让系统生成现在普遍使用的\texttt{PDF}文件，人们又开始扩展系统形成
+了新的编译程序，现在叫\emph{编译引擎}：pdfTeX和pdfLaTeX。接着还要解决非英
+文字体的支持问题，就又产生了：XeTeX和XeLaTeX。最后有人还将Lua和\TeX{}混合
+到一起，做成了更适合编程的LuaTeX。所有这些扩展放在一起统
+称
+\href{https://www.sharelatex.com/blog/2012/12/01/the-tex-family-tree-latex-pdftex-xelatex-luatex-context.html}{\emph{\TeX{}
+    家族}}。
 
 \subsection{自学资料}
 
@@ -58,6 +68,42 @@
 \item \LaTeX{}工作室：\url{http://www.latexstudio.cn}，提供国内稀有高水准排版
   服务。还有一个QQ社区：91940767。
 \end{itemize}
+
+\subsection{安装}
+
+工欲善其事必先利其器，了解\LaTeX{}之前先说说\uline {安装}这个话
+题。\LaTeX{}的器包括\uline{系统}和\uline{编辑器}两部分。
+
+\uline{系统}是很多人的习惯说法，更准确的说法是\uline{宏集}或\uline{套装}，
+反正就是安装之后可以编译\textit{tex}文档的软件吧。系统主要有三种：
+\begin{itemize}
+\item \href{https://miktex.org/}{MikTeX}：用于\texttt{Windows}系统环境；
+\item \href{https://www.tug.org/mactex/}{MacTeX}：用于\texttt{Mac OSX}系
+  统环境；
+\item \href{http://tug.org/}{TeXLive}：用
+  于\texttt{Unix}、\texttt{Linux}、\texttt{Windows}系统环境。据说
+  \texttt{TeXLive}所拥有的宏包是最新的和最全面的；
+\item \href{http://www.ctex.org/HomePage}{CTeX}：用于\texttt{Windows}系
+  统环境。CTeX是国人以\texttt{MikTeX}为核心打造的\LaTeX{}套装，用来支持
+  中文和中文环境。
+\end{itemize}
+
+为嘛叫\uline{宏集}或\uline{套装}呢？因为一般只有最原始
+的\TeX{}或\LaTeX{}程序、模板和宏包远远满足不了用户的需求，用户还需要更丰
+富的宏包、模板、字体、特别还需要编辑器。因此我们的前辈就东拼西凑来这些东
+东，成了我们所说的宏集或套装。
+
+开始动手下载吧，以\texttt{TeXLive}为例，它来源于一个所
+谓\texttt{CTAN}(Comprehensive \TeX{} Archive Network)的网站，它在全世界各
+地都有镜像网站，我们可以从就近从镜像网站上下载到安装包。这里提供一个
+吧：
+\href{http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso}{texlive2017}
+。
+
+\textit{tex}编辑器五花八门，有\texttt{TeXLive}自带
+的TeXWorks、\texttt{CTeX}自带的WinEdt，还有TeXMaker、TeXStudio等。除了这
+些专用编辑器，通用编译器配上一插件也可以担当重任，
+如Vim、Emacs、Atom、VisualStudio等。具体选择哪一款全凭个人感觉了。
 
 %%% Local Variables:
 %%% mode: latex

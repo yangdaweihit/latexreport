@@ -1,3 +1,4 @@
+
 \section{基本命令和环境}
 
 \emph{命令}和\emph{环境}是构成文档的基本单元。
@@ -31,6 +32,14 @@
   \begin{document}
     \maketitle % 没有这条命令，前面的定义都烟消云散。...
   \end{document}
+\end{code}
+
+\subsection{目录}
+
+插入目录只需一条命令，位于\verb!\maketitle!之后：
+
+\begin{code}
+  \tableofcontents
 \end{code}
 
 \subsection{中文输入}
@@ -127,15 +136,6 @@
   文献\cite{Wu2010}指出了如下观点：
 \end{code}
 
-\subsection{目录}
-
-插入目录只需一条命令，位于\verb!\maketitle!之后：
-
-\begin{code}
-  \tableofcontents
-\end{code}
-
-\url{http://detexify.kirelabs.org/classify.html}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "latexwritting"
