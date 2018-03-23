@@ -1,0 +1,37 @@
+% 指明编写文档时使用的编码格式：GBK或UTF8。推荐UTF8。
+\documentclass[UTF8]{article} 
+\usepackage{ctex}
+\usepackage{geometry}
+\geometry{papersize={200mm,2000mm}}
+% 与第2-3行等价的另一个形式是
+% \documentclass{article}
+% \usepackage[UTF8]{ctex}
+
+\ctexset{%
+  % heading = true
+}%
+
+\title{这是一个大长脸PDF文件}
+\date{}
+\begin{document}
+\maketitle
+
+\section{字体}
+\kaishu \verb!\kaishu!楷书
+
+\heiti \verb!\heiti!黑体
+
+\songti \verb!\songti!宋体
+
+\section{字号}
+\tiny \verb!\tiny!七号
+
+\normalsize \verb!\normalsize!五号
+
+\large \verb!\large! 小四
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

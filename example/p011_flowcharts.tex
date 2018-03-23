@@ -1,0 +1,82 @@
+% 流程图 
+
+\documentclass{article} \usepackage[UTF8]{ctex}
+\usepackage[left=3cm,right=3cm,bottom=3cm]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{positioning}
+
+\tikzstyle{startstop} = [rectangle, rounded corners=1.3em, minimum width=2cm,
+minimum height=1cm,text centered, draw=black, fill=gray!2,line width=1pt]
+
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right
+angle=110, minimum width=3cm, minimum height=1cm, inner sep=0.5cm, text
+centered, draw=black, fill=gray!2,line width=1pt]
+
+\tikzstyle{process} = [rectangle, rounded corners, minimum width=4cm,
+minimum height=1cm, inner sep=0.5cm, text centered, draw=black,
+fill=gray!2,line width=1pt]
+
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm,
+text centered, draw=black, fill=gray!2]
+
+\tikzstyle{point} = [rectangle, inner sep=0pt,minimum height=2em]
+
+\tikzstyle{arrow} = [thick,->,>=stealth,line width=1pt,color=black!50]
+\tikzstyle{line} = [thick,line width=1pt,color=black!50]
+
+\begin{document}
+
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
+\node (start) [startstop] {开始};
+\node (test) [io, below of=start,align=center, yshift=-0.3cm] {按给定拉力进行校准张拉
+  试，控制$20 \leq \xi \leq 50$};
+\node (signal) [process, below of=test,align=center,yshift=-0.8cm] {获
+  取并处理加速度信号 \\ 识别固有振动频率
+  $\mathbf{f}$与频阶 \\
+选择最大和最小频阶$f_{nt}$和$f_{nb}$\\ 标记最大频阶为$nt$，最小频阶为$nb$};
+\node (xi1) [process, below of=signal,align=center,yshift=-1.2cm] {由频阶$nt$和$nb$查实用模型系数表
+  \\ 确定系数$a_{nt}$、$b_{nt}$和$a_{nb}$、$b_{nb}$};
+
+\node (void) [point, right= 2cm of xi1] {进行3-5次张拉试验};
+
+\node (xi2) [process, below of=xi1,align=center,yshift=-0.5cm] {将上述参
+  数代入公式计算频比系数： 
+  $K_{tb}=\dfrac{\eta_{nt}a_{nb}}{\eta_{nb}a_{nt}}$ };
+
+\node (xi3) [process, below of=xi2,align=center,yshift=-0.5cm] {将上述参
+  数代入公式推测相对刚度：
+  $ 
+  \xi_{tb} = \dfrac{K_{tb}b_{nt}-b_{nb}}{K_{tb}-1} $ };
+
+
+\node (EIi) [process, below of=xi3,align=center,yshift=-0.3cm] {
+  由相对刚度代入公式得拉索截面抗弯刚度：
+  $EI = T\dfrac{l^{2}}{\xi_{tb}^{2}}$ };
+
+\node (EI) [io, below of=EIi,align=center,yshift=-0.3cm] {
+  求取各次校准试验拉索截面抗弯刚度均值作为最终识别值。}; 
+
+\node (stop) [startstop,below of=EI] {结束};
+
+ \draw [arrow] (start) -- (test);
+ \draw [arrow] (test) -- (signal);
+ \draw [arrow] (signal) -- (xi1);
+ \draw [arrow] (xi1) -- (xi2);
+ \draw [arrow] (xi2) -- (xi3);
+ \draw [arrow] (xi3) -- (EIi);
+ \draw [arrow] (EIi) -- (EI);
+ \draw [arrow] (EI) -- (stop);
+ \draw [line] (EIi) -| (void);
+ \draw [arrow] (void) |- (test);
+\end{tikzpicture}
+\end{center}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,203 @@
+% 字体设置练习
+
+\documentclass{article}
+\usepackage[UTF8,nocap]{ctexcap}
+\usepackage[left=3cm,right=3cm,bottom=3cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{ccaption}
+\newcommand{\blueline}{\color{blue}\vrule width 1pt}
+
+\setCJKfamilyfont{BiaoSong}{FZXiaoBiaoSong-B05}
+\newcommand*{\biaosong}{\CJKfamily{BiaoSong}}
+
+\setCJKfamilyfont{hupos}{STHupo}
+\newcommand*{\hupo}{\CJKfamily{hupos}}
+
+\setCJKfamilyfont{stkaiti}{STKaiti}
+\newcommand*{\stkaiti}{\CJKfamily{stkaiti}}
+
+\setCJKfamilyfont{caiyuns}{STCaiyun}
+\newcommand*{\caiyun}{\CJKfamily{caiyuns}}
+
+\setCJKfamilyfont{YaHei}{Microsoft YaHei}
+\newcommand*{\yahei}{\CJKfamily{YaHei}}
+
+\setCJKfamilyfont{FZXingKai}{FZXingKai-S04}
+\newcommand*{\xingkai}{\CJKfamily{FZXingKai}}
+
+\setCJKfamilyfont{FZYaoTi}{FZYaoTi-M06}
+\newcommand*{\yaoyi}{\CJKfamily{FZYaoTi}}
+
+\setCJKfamilyfont{FZCuHuoYi}{FZCuHuoYi-M25S}
+\newcommand*{\huoyi}{\CJKfamily{FZCuHuoYi}}
+
+\setCJKfamilyfont{Palatino}{adobe garamond pro}
+\newcommand*{\palatino}{\CJKfamily{Palatino}}
+
+
+%ctex-xecjk-winfonts.def
+\DeclareFixedFont{\pzc}{T1}{pzc}{mb}{it}{12pt}
+% TeX Gyre Pagella
+
+\setCJKmainfont{FZKai-Z03}  %缺省中文字体
+\setmainfont{Times New Roman} %缺省英文字体
+
+
+% 重新定义section
+\CTEXoptions[today=small]
+
+% \CTEXsetup[name={第, 节}]{section}
+\CTEXsetup[number={\chinese{section}},format={\large \biaosong},beforeskip=\baselineskip]{section}
+
+\def\myfont#1{\fontfamily{STFangsong}\fontsize{20pt}{20pt}\selectfont #1}
+\def\gradei#1{{\fontspec{SJQY} A}#1}
+\def\gradeii#1{{\fontspec{SJQY} B}#1}
+\def\gradeiii#1{{\fontspec{SJQY} C}#1}
+
+ \newcommand{\colorpk}[1]{\textsf{\textcolor{BrickRed}{#1}}}
+
+
+\definecolor{gray80}{gray}{.80}
+\definecolor{gray70}{gray}{.70}
+\definecolor{gray60}{gray}{.60}
+\definecolor{gray40}{gray}{.40}
+\definecolor{gray20}{gray}{.20}
+
+\renewcommand{\tablename}{表}
+\captionnamefont{ \rm \huoyi  \small}
+\captiontitlefont{ \rm \huoyi \small }
+ 
+\title{\LaTeX{}字体配置}
+\author{杨大伟}
+\date{  \pzc 2014-3-31}
+
+\begin{document}
+\maketitle
+
+\section{前言}
+
+使用\colorpk{fontspec}宏包，可不必在\LaTeX{}系统中安装字体，即可使用系统中的OpenType字体。
+
+\begin{table}[htbp] 
+\centering
+\songti \small
+%\caption{\label{tab:test}本文字体配置} 
+\bicaption{表}{字体配置}{Tab}{Fonts Configuration}
+\begin{tabu} to 0.6\textwidth { X[1.1,l] X[1.1,l] X[1,c] }\toprule
+\rowfont[c]{}
+元素    & 字族  & 尺寸 \\  \taburulecolor{lightgray} \midrule[0.04em]
+节标题 &  GBK方正小标宋 & 10pt \\
+正文中文 &  方正楷体 & 10pt \\ 
+正文西文 &  Times New Roman & 10pt \\ \taburulecolor{black} \bottomrule 
+\end{tabu} 
+\end{table}
+
+\section{\colorpk{tabu}和\colorpk{longtabu}表格}
+
+\begin{longtabu} to \textwidth {X[1,l] |[1.2pt gray]  X[1,l]}
+\rowfont[c]{\bfseries \color{blue}}
+English &中文  \\  \tabucline[1pt on 3.5pt off 2pt]
+This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature. & 
+这是一行这是一行
+$$\int_0^1 \sin(x) =1 $$
+这是一行这是一行这是一行这是一行这是一行这是一行这是一行 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行\\
+This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature. & 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行\\
+This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature. & 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行\\
+This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature. & 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行\\
+This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature.This is a row literature. & 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行 这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行这是一行\\
+
+\end{longtabu}
+
+
+\section{字体的属性}
+字体有5个属性：编码(encoding)、字族(family)、序列(series)、形状(shape)、尺寸(size)。编码规定了字符的代码信息编制的方式。字族表示某种类型的字体集合，字族就是通常所说的字体。序列描述笔画的粗细和宽窄程度。形状为字体的外表形态，如倾斜或直立。尺寸表示字体的大小，以点数表示，如{\tt 11pt}、{\tt 20pt}等。
+
+编码用于在字库中查找字符，在\LaTeX{}中一般使用{\tt OT1}编码，还有{\tt T1}或{\tt OML}等 。
+
+字族即通常所说的各种字体，后面我们将重点讲如何使用各种字族。\LaTeX{}的字族非常有限，仅有罗马体、等线体、打字机体三类。
+
+序列表示笔画的粗细宽窄，在\LaTeX{}中仅有常规和精宽两种序列。
+
+形状包括：直立、斜体、倾斜和小型大写四种，默认为直立。
+
+尺寸：预定为5$\sim$25{\tt pt}。默认为10{\tt pt}。
+
+\section{字体设定命令}
+
+设定字体即由字体命令对上述字体的属性进行定义，字体命令可归为三类：字体设置命令、字体尺寸 命令和字体属性命令。字体设置命令可以被视为字体属性设置的批处理命令，即通过一条命令按预定义设置字体的各项属性。常见的字体设置命令见书中。
+
+在\LaTeX{}用\texttt{normalfont}表示常规字体，已定义为罗马体字族、常规序列和直立形状。
+
+\section{字体尺寸命令}
+
+\section{位图字体和向量字体}
+
+位图字体，也称点阵字体，是一种早期的字体显示方法。现在仅用于dvi格式文件，字体文件扩展名为pk。
+
+向量字体的每个字形是通过数学方程来描述的，在一个字形上分割出若干个关键点，相邻关键点间由一条光滑曲线连接。向量字体可以无限缩放而不会失真。向量字体主要有三种：
+
+TrueType：使用二次贝塞尔曲线来描述字形，字库文件扩展名为.ttf。
+
+Type1：使用三次贝塞尔曲线描述字体，故比TrueTyep更加精美，其字库扩展名是.pfb。
+
+OpenTyep：集中了前两者的优点而兼容前两者，其字库扩展名是.otf。
+
+{\pzc 1234567890}
+
+钢筋等级符号：
+
+\gradei{10}
+
+\gradeii{16}
+
+\gradeiii{20}
+
+{ \hupo 这是一种叫琥珀的字体。}
+
+{\caiyun 这是一种叫彩云的字体。}
+
+William Sealy Gossett ( \oldstylenums{1876}$\sim$\oldstylenums{1937} ) 
+
+{\xingkai 喜欢一样东西可以这么持久阿。by 菲菲}(\oldstylenums{2014}-\oldstylenums{3}-\oldstylenums{31})
+
+
+\newcount\WL \unitlength.75pt
+\begin{picture}(460,60)(355,-10)
+\sffamily \tiny \linethickness{1.25\unitlength} \WL=360
+\multiput(360,0)(1,0){456}%
+{{\color[wave]{\the\WL}\line(0,1){50}}\global\advance\WL1}
+\linethickness{0.25\unitlength}\WL=360
+\multiput(360,0)(20,0){23}%
+{\picture(0,0)
+\line(0,-1){5} \multiput(5,0)(5,0){3}{\line(0,-1){2.5}}
+\put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+\endpicture}
+\end{picture}
+
+
+\textcolor{gray80}{gray = 0.80}
+
+\textcolor{gray70}{gray = 0.70}
+
+\textcolor{gray60}{gray = 0.60}
+
+\textcolor{gray40}{gray = 0.40}
+
+\textcolor{gray20}{gray = 0.20}
+
+
+
+\section{字体定义文件}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

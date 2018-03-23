@@ -1,0 +1,4 @@
+1. copy htf to ht-fonts...
+
+2. tex4ht -i /usr/local/exlive/2017/texmf-dist/tex4ht/ht-fonts/unicode/cjk/unisong
+test.tex  
