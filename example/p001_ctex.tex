@@ -1,6 +1,7 @@
 % 指明编写文档时使用的编码格式：GBK或UTF8。推荐UTF8。
 \documentclass[UTF8]{article} 
 \usepackage{ctex}
+\usepackage{amsmath}
 % 与第2-3行等价的另一个形式是
 % \documentclass{article}
 % \usepackage[UTF8]{ctex}
@@ -21,6 +22,17 @@
 
 \songti \verb!\songti!宋体
 
+   \begin{equation}
+     \label{eq:adf}
+     a^{2} + b^{2} = \int x \mathrm{d}x
+   \end{equation}
+
+   \begin{align}
+     \label{eq:adf}
+     a^{2} + b^{2} & = \int x \mathrm{d}x \\
+     4^{2} + 3^{2} & = 5^{2}\\
+   \end{align}
+   
 \section{字号}
 \tiny \verb!\tiny!七号
 
